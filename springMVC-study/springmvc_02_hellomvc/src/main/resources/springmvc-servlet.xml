@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--这里Spring的配置文件名称为[servletname]-servlet.xml-->
+
+    <!--1. 配置处理映射器-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+
+    <!--2. 配置处理器适配器-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+    <!--3. 配置视图解析器：DispatcherServlet给他的ModelAndView
+    1. 获取了ModelAndView中的数据
+    2. 解析ModelAndView中的视图名字
+    3. 拼接视图名字，找到对应的视图：/WEB-INF/jsp/hello.jsp
+    4. 将数据渲染到这个视图上
+
+    之后还有些模板引擎：Thymeleaf  Freemarker...-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--4. 配置自定义Controller；请求后，从Spring中跳到HelloController，而不是从原来的web.xml跳到HelloController-->
+    <bean id="hello" class="com.sandra.controller.HelloController"/>
+
+</beans>

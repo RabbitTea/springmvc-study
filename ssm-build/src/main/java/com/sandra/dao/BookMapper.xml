@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--每一个mapper文件有一个命名空间-->
+<mapper namespace="com.sandra.dao.BookMapper">
+
+    <insert id="addBook" parameterType="Books">
+        insert into mybatis.books (bookName, bookCounts, detail)
+        values (#{bookName}, #{bookCounts}, #{detail})
+    </insert>
+
+    <delete id="deleteBookById" parameterType="int">
+        delete from mybatis.books where bookId = #{bookId}
+    </delete>
+
+    <update id="updateBook" parameterType="Books">
+        update into mybatis.books
+        set bookName=#{bookName}, bookCounts=#{bookCounts}, detail=#{detail}
+        where bookId = #{bookID}
+    </update>
+
+    <select id="queryBookById" resultType="Books">
+        select * from mybatis.books where bookId = #{bookId}
+    </select>
+
+    <select id="queryAllBooks" resultType="Books">
+        select * from mybatis.books
+    </select>
+
+    <select id="queryBook" resultType="Books">
+        select * from mybatis.books where bookName = #{bookName}
+    </select>
+
+</mapper>

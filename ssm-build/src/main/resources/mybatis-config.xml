@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置数据源，交给Spring去做-->
+
+    <!--mybatis要做的事情之三：进行一些设置；这里是添加日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--mybatis要做的事情之一：取别名-->
+    <typeAliases>
+        <package name="com.sandra.pojo"/>
+    </typeAliases>
+
+    <!--mybatis要做的事情之二：映射一些mappers配置文件-->
+    <mappers>
+        <mapper class="com.sandra.dao.BookMapper"/>
+    </mappers>
+</configuration>

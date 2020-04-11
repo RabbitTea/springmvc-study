@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--script标签不能单闭合-->
+    <script type="text/javascript">
+
+        //创建一个JavaScript对象  ES6
+        var user = {
+            name = "sandra",
+            age:3,
+            sex："男"
+        }
+
+        //将JS对象转换为JSON对象
+        var json = JSON.stringify(user);
+        //在前端页面f12检查中的控制台输出
+        console.log(json);
+
+        //将JSON对象转换为JS对象
+        var obj = JSON.parse(json);
+        console.log(obj);
+
+        console.log(user);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
